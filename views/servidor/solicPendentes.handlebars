@@ -1,0 +1,66 @@
+<section id="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="/servidor">▷ Início</a></li>
+      <li><a href="/servidor/solicitacoes">▷ Gerenciar Solicitações</a></li>
+      <li class="active"><a href="/servidor/solicitacoes/pendentes">▷ Solicitações Pendentes</a></li>
+    </ol>
+  </div>
+</section>
+
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <img class="img-responsive" src="/imgs/avatar2.png" alt>
+        <div class="list-group">
+          <div class="list-group-item active main-color-bg">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <b>{{user.nome}}</b>
+          </div>
+          <div class="list-group-item active main-color-bg">
+            <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <b>{{user.matricula}}</b>
+          </div>
+          <a href="/servidor/residencias" class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Gerenciar Residências</a>
+          <a href="/servidor/residentes" class="list-group-item"><span class="glyphicon glyphicon-user " aria-hidden="true"></span> Gerenciar Residentes </a>
+          <a href="/servidor/solicitacoes" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Gerenciar Solicitações</a>
+          <a href="/servidor/servidores" class="list-group-item"><span class="glyphicon glyphicon-user " aria-hidden="true"></span> Gerenciar Servidores </a>
+          <a href="/usuario/logout" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Sair</a>
+        </div>
+
+      </div>
+
+      <div class="col-md-9">
+        <!-- Website Overview -->
+        <div class="panel panel-default">
+          <div class="panel-heading main-color-bg">
+            <h3 class="panel-title">Solicitações Pendentes</h3>
+          </div>
+          <div class="panel-body">
+            {{#each solicitacoes}}
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{solicitanteUsuario.nome}} - {{solicitanteResidencia.nome}} - {{solicitanteQuarto.titulo}}</h3>
+              </div>
+              <div class="panel-body">
+                <b>Status:</b> {{status}} <br><br>
+                <b>Tipo do serviço:</b> {{tipoServico}} <br><br>
+                <b>Descrição: </b>{{descricao}}<br><br>
+                <b>Funcionário: </b>{{funcionario}}<br><br>
+                <form class="form-horizontal" action="/servidor/solicitacoes/atender" method="POST">
+                  <input type="hidden" name="id_solicitacao"  value="{{_id}}">
+                <b>Delegar funcionário: </b> <input id="funcionario" name="funcionario" type="text" placeholder="Nome do funcionário que irá atender" required="" style="width:300px; height: 34px">
+                  <button type="submit" id="atender" name="atender" class="btn btn-success">Atender</button>
+                </form>
+              </div>
+              <div class="panel-footer"><small><b>Data </b> {{criacao}}<br> <b>Ultima atualizacao </b> {{atualizacao}}</small></div>
+            </div>
+            <br><br>
+            {{else}}
+            <p>Não há solicitação pendente</p>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

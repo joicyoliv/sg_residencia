@@ -1,0 +1,26 @@
+<section id="main">
+  <legend>Login</legend>
+  <div class="container">
+    <div class="row">
+      <!-- Center the 4-column well -->
+      <div class="col-md-4 col-md-offset-4">
+        <form id="login" action="/usuario/login" method="post" class="well">
+          <!-- <img class="img-responsive img-circle img-center"  width="317" height="230" src="imgs/avatar2.png"> -->
+          <div class="form-group">
+            <label>Matrícula</label>
+            <input type="text" name="matricula" id="matricula" class="form-control" placeholder="matricula" required>
+          </div>
+          <div class="form-group">
+            <label>Senha</label>
+            <input type="password" name="senha" id="senha" class="form-control" placeholder="senha" required>
+          </div>
+
+          <span class="help-block text-center">Você será redirecionado para funcionalidades de servidor ou residente de acordo com sua matrícula</span>
+
+          <button type="submit" class="btn btn-success btn-block">Entrar</button>
+          <a class="btn btn-link" href="" style="color: #555B7A">Esqueceu sua senha?</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

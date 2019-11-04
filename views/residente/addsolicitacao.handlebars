@@ -1,0 +1,43 @@
+{{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+
+<form class="form-horizontal" action="/residente/solicitar" method="POST">
+<fieldset>
+<!-- Form Name -->
+<legend>Fazer uma solicitação de serviço</legend>
+
+<input type="hidden" name="id_usuario"  value="{{user._id}}">
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="tipoServico">Tipo do serviço</label>
+  <div class="col-md-5">
+    <select id="tipoServico" name="tipoServico" class="form-control">
+      <option value="Instalação de Software">Instalação de Software</option>
+      <option value="Manutenção de Computador">Manutenção de Computador</option>
+      <option value="Infraestrutura">Infraestrutura</option>
+      <option value="Outro">Outro</option>
+    </select>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="descricao">Descrição</label>
+  <div class="col-md-4">
+    <textarea class="form-control" id="descricao" name="descricao" placeholder="Informar o que é necessário para atender o serviço e o motivo do pedido"></textarea>
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="add"></label>
+  <div class="col-md-8">
+    <button type="submit" id="add" name="add" class="btn btn-success">Solicitar</button>
+    <a class="btn btn-danger" href="/residente">Cancelar</a>
+  </div>
+</div>
+</fieldset>
+</form>

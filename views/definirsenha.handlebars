@@ -1,0 +1,27 @@
+<section id="main">
+  <legend>{{usuario.nome}}, crie sua senha</legend>
+  <div class="container">
+    <div class="row">
+      <!-- Center the 4-column well -->
+      <div class="col-md-4 col-md-offset-4">
+        {{#each erros}}
+          <div class="alert alert-danger">{{texto}}</div>
+        {{else}}
+        {{/each}}
+        <form id="login" action="/usuario/definir_senha" method="post" class="well">
+          <!-- <img class="img-responsive img-circle img-center"  width="317" height="230" src="imgs/avatar2.png"> -->
+          <input type="hidden" name="id" value="{{usuario._id}}">
+          <div class="form-group">
+            <label>Senha</label>
+            <input id="senha" name="senha" type="password" minlength="6" placeholder="Senha de acesso" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Confimação de senha</label>
+            <input id="confirmacao" name="confirmacao" type="password" minlength="6"  placeholder="Confimação de senha" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Definir senha</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

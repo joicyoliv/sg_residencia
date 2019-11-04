@@ -1,0 +1,46 @@
+<section id="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="/residente">▷ Início</a></li>
+    </ol>
+  </div>
+</section>
+
+<section id="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <img class="img-responsive" src="imgs/avatar2.png" alt>
+        <div class="list-group">
+          <div class="list-group-item active main-color-bg">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <b>{{user.nome}}</b>
+          </div>
+          <div class="list-group-item active main-color-bg">
+            <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <b>{{user.matricula}}</b>
+          </div>
+          <a href="/residente/solicitar" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Solicitar</a>
+          <a href="#" class="list-group-item"><span class="glyphicon glyphicon-list " aria-hidden="true"></span> Acompanhar Solicitações </a>
+          <a href="#" class="list-group-item"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Avaliar Solicitações</a>
+          <a href="/usuario/logout" class="list-group-item"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Sair</a>
+        </div>
+      </div>
+
+      <div class="col-md-9">
+        <!-- Website Overview -->
+        <div class="panel panel-default">
+          <div class="panel-heading main-color-bg">
+            <h3 class="panel-title">Lista de Solicitações</h3>
+          </div>
+          <div class="panel-body">
+            <form action="/residente/acompanhar_solicitacoes" method="post">
+              <input type="hidden" name="id_usuario"  value="{{user._id}}">
+              <button type="submit" id="ir" name="ir" class="btn btn-primary">Suas Solicitações</button>
+            </form>
+            <br><br>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

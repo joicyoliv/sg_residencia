@@ -1,0 +1,61 @@
+<section id="breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="/servidor">▷ Início</a></li>
+        <li class="active"><a href="/servidor/solicitacoes">▷ Gerenciar Solicitações</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <img class="img-responsive" src="/imgs/avatar2.png" alt>
+          <div class="list-group">
+            <div class="list-group-item active main-color-bg">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <b>{{user.nome}}</b>
+            </div>
+            <div class="list-group-item active main-color-bg">
+              <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <b>{{user.matricula}}</b>
+            </div>
+            <a href="/servidor/residencias" class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Gerenciar Residências</a>
+            <a href="/servidor/residentes" class="list-group-item"><span class="glyphicon glyphicon-user " aria-hidden="true"></span> Gerenciar Residentes </a>
+            <a href="/servidor/solicitacoes" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Gerenciar Solicitações</a>
+            <a href="/servidor/servidores" class="list-group-item"><span class="glyphicon glyphicon-user " aria-hidden="true"></span> Gerenciar Servidores </a>
+            <a href="/usuario/logout" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Sair</a>
+          </div>
+
+      </div>
+
+        <div class="col-md-9">
+          <!-- Website Overview -->
+         <div class="panel panel-default">
+           <div class="panel-heading main-color-bg">
+             <h3 class="panel-title">Solicitações</h3>
+           </div>
+           <div class="panel-body">
+             <div class="col-md-4" >
+               <div class="well dash-box">
+                 <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></h2>
+                 <h4><a href="/servidor/solicitacoes/pendentes">Pendentes</a></h4>
+               </div>
+             </div>
+             <div class="col-md-4">
+                 <div class="well dash-box">
+                   <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></h2>
+                   <h4><a href="/servidor/solicitacoes/andamentos">Em Andamento</a></h4>
+                 </div>
+               </div>
+               <div class="col-md-4">
+                     <div class="well dash-box">
+                       <h2><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></h2>
+                       <h4><a href="/servidor/solicitacoes/finalizadas">Finalizadas</a></h4>
+                     </div>
+               </div>
+                 </div>
+               </div>
+        </div>
+      </div>
+    </div>
+  </section>

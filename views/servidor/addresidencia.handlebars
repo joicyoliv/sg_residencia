@@ -1,0 +1,37 @@
+{{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+
+<form class="form-horizontal" action="/servidor/residencias/adicionar" method="POST">
+<fieldset>
+<!-- Form Name -->
+<legend>Adicionar Residência</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="nome">Nome</label>
+  <div class="col-md-5">
+  <input id="nome" name="nome" type="text" placeholder="Nome para residência" required="" class="form-control input-md">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="endereco">Endereço</label>
+  <div class="col-md-5">
+  <input id="endereco" name="endereco" type="text" placeholder="Endereço da residência" class="form-control input-md">
+  <span class="help-block">Rua, Número, Bairro, Cidade, UF e CEP</span>
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="add"></label>
+  <div class="col-md-8">
+    <button type="submit" id="add" name="add" class="btn btn-success">Adicionar</button>
+    <a class="btn btn-danger" href="/servidor/residencias">Cancelar</a>
+  </div>
+</div>
+</fieldset>
+</form>

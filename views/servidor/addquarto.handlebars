@@ -1,0 +1,64 @@
+{{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+
+<form class="form-horizontal" action="/servidor/residencias/adicionar_quarto" method="POST">
+<fieldset>
+<!-- Form Name -->
+<legend>Adicionar Quarto a Residência ({{residencia.nome}})</legend>
+<input type="hidden" name="id_residencia"  value="{{residencia._id}}">
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="nome">Título</label>
+  <div class="col-md-5">
+  <input id="titulo" name="titulo" type="text" placeholder="Título para o quarto" required="" class="form-control input-md">
+  <span class="help-block">Exemplo: C4-101</span>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="nome">Capacidade</label>
+  <div class="col-md-5">
+  <input id="capacidade" name="capacidade" type="number" min="1" max="9" required="" placeholder="Capacidade de residentes no quarto" class="form-control input-md">
+  <span class="help-block">Exemplo: C4-101</span>
+  </div>
+</div>
+
+<!-- Multiple Radios -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sexo">Classificação de sexo</label>
+  <div class="col-md-4">
+  <div class="radio">
+    <label for="sexo-0">
+      <input type="radio" name="sexo" id="sexo-0" value="Feminino" checked="checked">
+      Feminino
+    </label>
+	</div>
+  <div class="radio">
+    <label for="sexo-1">
+      <input type="radio" name="sexo" id="sexo-1" value="Masculino">
+      Masculino
+    </label>
+	</div>
+  <div class="radio">
+    <label for="sexo-2">
+      <input type="radio" name="sexo" id="sexo-2" value="Misto">
+      Misto
+    </label>
+	</div>
+  </div>
+</div>
+
+<!-- Button (Double) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="add"></label>
+  <div class="col-md-8">
+    <button type="submit" id="add" name="add" class="btn btn-success">Adicionar</button>
+    <a class="btn btn-danger" href="/servidor/residencias">Cancelar</a>
+  </div>
+</div>
+</fieldset>
+</form>

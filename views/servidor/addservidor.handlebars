@@ -1,0 +1,89 @@
+{{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+
+<form class="form-horizontal" action="/servidor/servidores/adicionar" method="POST">
+<fieldset>
+<!-- Form Name -->
+<legend>Adicionar um Servidor</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="nome">Nome</label>
+  <div class="col-md-5">
+  <input id="nome" name="nome" type="text" placeholder="Nome completo do servidor" required="" class="form-control input-md">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="cpf">CPF</label>
+  <div class="col-md-5">
+  <input id="cpf" name="cpf" type="text" placeholder="CPF do servidor" required="" class="form-control input-md">
+  </div>
+</div>
+<!-- Multiple Radios -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sexo">Sexo</label>
+  <div class="radio">
+    &nbsp; &nbsp;
+    <label for="sexo-0">
+      <input type="radio" name="sexo" id="sexo-0" value="Feminino" checked="checked">
+      Feminino
+    </label>
+    &nbsp; &nbsp; &nbsp; &nbsp; <!-- espaços -->
+    <label for="sexo-1">
+      <input type="radio" name="sexo" id="sexo-1" value="Masculino">
+      Masculino
+    </label>
+	</div>
+</div>
+
+<br>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="matricula">Matrícula</label>
+  <div class="col-md-5">
+  <input id="matricula" name="matricula" type="text" placeholder="Matrícula do servidor" required="" class="form-control input-md">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="cpf">Cargo</label>
+  <div class="col-md-5">
+  <input id="cargo" name="cargo" type="text" placeholder="Cargo do servidor" required="" class="form-control input-md" required>
+  </div>
+</div>
+<br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="endereco">Email</label>
+  <div class="col-md-5">
+  <input id="email" name="email" type="email" placeholder="Email do servidor" class="form-control input-md" required>
+  </div>
+</div>
+<br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="endereco">Endereço</label>
+  <div class="col-md-5">
+  <input id="endereco" name="endereco" type="text" placeholder="Endereço do servidor" class="form-control input-md" required>
+  <span class="help-block">Rua, Número, Bairro, Cidade, UF e CEP</span>
+  </div>
+</div>
+<br>
+<!-- Button (Double) -->
+<br>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="add"></label>
+  <div class="col-md-8">
+    <button type="submit" id="add" name="add" class="btn btn-success">Adicionar</button>
+    <a class="btn btn-danger" href="/servidor/servidors">Cancelar</a>
+  </div>
+</div>
+</fieldset>
+</form>

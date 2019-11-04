@@ -1,0 +1,161 @@
+{{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+
+<form class="form-horizontal" action="/servidor/residentes/adicionar" method="POST">
+<fieldset>
+<!-- Form Name -->
+<legend>Adicionar Residente</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="nome">Nome</label>
+  <div class="col-md-5">
+  <input id="nome" name="nome" type="text" placeholder="Nome completo do residente" required="" class="form-control input-md">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="cpf">CPF</label>
+  <div class="col-md-5">
+  <input id="cpf" name="cpf" type="text" placeholder="CPF do residente" required="" class="form-control input-md">
+  </div>
+</div>
+<!-- Multiple Radios -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sexo">Sexo</label>
+  <div class="radio">
+    &nbsp; &nbsp;
+    <label for="sexo-0">
+      <input type="radio" name="sexo" id="sexo-0" value="Feminino" checked="checked">
+      Feminino
+    </label>
+    &nbsp; &nbsp; &nbsp; &nbsp; <!-- espaços -->
+    <label for="sexo-1">
+      <input type="radio" name="sexo" id="sexo-1" value="Masculino">
+      Masculino
+    </label>
+	</div>
+</div>
+
+<br>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="matricula">Matrícula</label>
+  <div class="col-md-5">
+  <input id="matricula" name="matricula" type="text" placeholder="Matrícula do residente" required="" class="form-control input-md">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="cpf">Curso</label>
+  <div class="col-md-5">
+  <input id="curso" name="curso" type="text" placeholder="Curso do residente" required="" class="form-control input-md" required>
+  </div>
+</div>
+<br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="endereco">Email</label>
+  <div class="col-md-5">
+  <input id="email" name="email" type="email" placeholder="Email do residente" class="form-control input-md" required>
+  </div>
+</div>
+<br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="renda">Renda</label>
+  <div class="col-md-5">
+  <input id="renda" name="renda" type="text" placeholder="Renda do residente" required="" class="form-control input-md" required>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="endereco">Endereço</label>
+  <div class="col-md-5">
+  <input id="endereco" name="endereco" type="text" placeholder="Endereço do residente" class="form-control input-md" required>
+  <span class="help-block">Rua, Número, Bairro, Cidade, UF e CEP</span>
+  </div>
+</div>
+<br>
+<!-- Select Basic / residencias -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="residencia">Residência</label>
+  <div class="col-md-4">
+    <select id="residencia" name="residencia" class="form-control" onchange="reloadSelectQuartos()">
+      {{#each residencias}}
+      <option value="{{_id}}">{{nome}}</option>
+      {{else}}
+      <option value="0">Nenhuma residência resgistrada</option>
+      {{/each}}
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic / quartos das residencias-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="quarto">Quarto</label>
+  <div class="col-md-4">
+    <select id="quarto" name="quarto" class="form-control">
+    </select>
+    <span class="help-block">O quarto deve ter vaga e permitir o sexo do residente</span>
+  </div>
+</div>
+
+<!-- Select Basic / quartos das residencias que ficarão escondidos-->
+{{#each residencias}}
+<select id="quartos-resi-{{_id}}" name="quartos-resi-{{_id}}" class="form-control" style="width:4px; height:2px; visibility: hidden;">
+  {{#quartos}}
+  <option value="{{_id}}">{{titulo}} ({{sexo}} - {{membros}}/{{capacidade}} moradores)</option>
+  {{else}}
+  <option value="0">Nenhum quarto resgistrado nesta residência</option>
+  {{/quartos}}
+</select>
+{{else}}
+<select id="quartos-resi-0" name="quartos-resi-0" class="form-control" style="width:4px; height:2px; visibility: hidden;">
+  <option value="0">Selecione uma residência</option>
+</select>
+{{/each}}
+
+<!-- Button (Double) -->
+<br>
+<div class="form-group">
+  <label class="col-md-4 control-label" for="add"></label>
+  <div class="col-md-8">
+    <button type="submit" id="add" name="add" class="btn btn-success">Adicionar</button>
+    <a class="btn btn-danger" href="/servidor/residentes">Cancelar</a>
+  </div>
+</div>
+</fieldset>
+</form>
+
+<script type="text/javascript">
+reloadSelectQuartos();
+
+function reloadSelectQuartos() {
+  //lista de residencias
+  var selectResidencia = document.getElementById("residencia");
+  //lista de quartos
+  var selectQuarto = document.getElementById("quarto");
+  //lista de quartos da residencia selecionada escondidada e populada pelo MongoDB
+  var hiddenQuarto = document.getElementById("quartos-resi-" + selectResidencia.value);
+
+  //remove todas opcoes do select de quarto
+  selectQuarto.innerText = null;
+
+  //populando select de quartos com quartos da residencia selecionada
+  for (var i = 0; i < hiddenQuarto.length; i++) {
+    var option = document.createElement("option");
+    option.text = hiddenQuarto.options[i].text;
+    option.value =  hiddenQuarto.options[i].value;
+    selectQuarto.appendChild(option);
+  }
+}
+</script>

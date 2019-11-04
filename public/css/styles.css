@@ -1,0 +1,145 @@
+body {
+  background: #F4F4F4;
+}
+
+.navbar {
+  min-height: 33px !important;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.navbar-nav > li > a, .navbar-brand {
+  padding-top: 6px !important;
+  padding-bottom: 0 !important;
+  height: 33px;
+}
+
+/* Navbar */
+.navbar-default {
+  background-color: #838b83;
+  border-color: #9bcd9b;
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #5e2612;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #5e2612;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #5e2612;
+  background-color: #9bcd9b;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #5e2612;
+  background-color: #9bcd9b;
+}
+.navbar-default .navbar-toggle {
+  border-color: #9bcd9b;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #9bcd9b;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #5e2612;
+}
+
+
+/* Custom */
+.main-color-bg {
+  background-color: #838b83 !important;
+  border-color: #9bcd9b !important;
+  color: #FFFFFF !important;
+}
+
+
+
+/* Header */
+#header {
+  background: #333333;
+  color: #FFFFFF;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+#header .create {
+  padding-top: 20px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background: #CCCCCC;
+  color: #333333;
+}
+
+.breadcrumb a {
+  color: #333333;
+}
+
+/* Progress Bars */
+.progress-bar {
+  background: #333333;
+  color: #FFFFFF;
+}
+
+.dash-box {
+  text-align: center;
+}
+
+#login {
+  margin-top: 30px;
+}
+
+/* Footer */
+#footer {
+  background: #333333;
+  color: #FFFFFF;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #5e2612;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #5e2612;
+    background-color: #9bcd9b;
+  }
+}
